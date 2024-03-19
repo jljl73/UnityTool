@@ -18,7 +18,7 @@ namespace Mignon.UI
 
         private void OnClickShowPopup()
         {
-            GameScene.Instance.PopupSystem.ShowPopup(new PopupData(ePopupType.Option, null));
+            SceneSystem.CurrentScene.PopupSystem.ShowPopup(new PopupData(ePopupType.Option, null));
         }
     }
 }

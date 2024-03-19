@@ -1,3 +1,4 @@
+using Mignon.Scene;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,8 @@ namespace Mignon.UI
 
         private void OnClickHidePopup()
         {
-            GameScene.Instance.PopupSystem.HidePopup();
+            //GameScene.Instance.PopupSystem.HidePopup();
+            SceneSystem.CurrentScene.PopupSystem.HidePopup();
         }
     }
 }

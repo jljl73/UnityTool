@@ -3,18 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mignon.Util;
+using Mignon.Scene;
 
 namespace Mignon
 {
-    public class GameScene : MonoBehaviour
+    public class GameScene : SceneBase
     {
-        // юс╫ц
-        static GameScene instance;
-        public static GameScene Instance => instance;
-
-        [SerializeField]
-        private PopupSystem popupSystem;
-        public PopupSystem PopupSystem => popupSystem;
+        public override eSceneType      SceneType       => eSceneType.GameScene;
 
         [SerializeField]
         private UIHomeView homeView;
@@ -23,11 +18,16 @@ namespace Mignon
         private GameObject circle;
         private Stack<GameObject> list = new Stack<GameObject>();
 
-        private void Start()
+        public override void Init()
         {
-            instance = this;
-            Init();
+            homeView.Init();
         }
+
+        public override void Dispose()
+        {
+            homeView.Dispose();
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -39,24 +39,6 @@ namespace Mignon
                 if (list.Count > 0)
                     list.Pop().DespawnObject();
             }
-        }
-
-        private void OnDestroy()
-        {
-            Dispose();
-        }
-
-
-        private void Init()
-        {
-            popupSystem.Init();
-            homeView.Init();
-        }
-        
-        private void Dispose()
-        {
-            popupSystem.Dispose();
-            homeView.Dispose();
         }
     }
 }
