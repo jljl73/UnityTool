@@ -2,6 +2,7 @@ using Mignon.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mignon.Util;
 
 namespace Mignon
 {
@@ -18,11 +19,26 @@ namespace Mignon
         [SerializeField]
         private UIHomeView homeView;
 
+        [SerializeField]
+        private GameObject circle;
+        private Stack<GameObject> list = new Stack<GameObject>();
 
         private void Start()
         {
             instance = this;
             Init();
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                list.Push(circle.SpawnObject());
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (list.Count > 0)
+                    list.Pop().DespawnObject();
+            }
         }
 
         private void OnDestroy()

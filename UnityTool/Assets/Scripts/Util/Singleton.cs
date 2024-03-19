@@ -21,7 +21,7 @@ namespace Mignon
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         static T instance;
-        public T Instance
+        public static T Instance
         {
             get
             {
@@ -32,6 +32,7 @@ namespace Mignon
                 {
                     GameObject singleton = new GameObject();
                     instance = singleton.AddComponent<T>();
+                    instance.name = typeof(T).Name;
                 }    
 
                 return instance;
