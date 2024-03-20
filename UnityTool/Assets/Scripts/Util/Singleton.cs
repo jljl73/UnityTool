@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Mignon
 {
-    public class Singleton<T> where T : class, new()
+    public class Singleton<T> where T : Singleton<T>, new()
     {
         static T instance;
         public T Instance
@@ -13,12 +13,17 @@ namespace Mignon
             {
                 if (instance == null)
                     instance = new T();
+                instance.Init();
                 return instance;
             }
         }
+
+        protected virtual void Init()
+        {
+        }
     }
 
-    public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         static T instance;
         public static T Instance
@@ -33,10 +38,15 @@ namespace Mignon
                     GameObject singleton = new GameObject();
                     instance = singleton.AddComponent<T>();
                     instance.name = typeof(T).Name;
-                }    
+                }
 
+                instance.Init();
                 return instance;
             }
+        }
+
+        protected virtual void Init()
+        {
         }
     }
 }
