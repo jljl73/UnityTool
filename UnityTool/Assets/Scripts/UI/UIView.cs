@@ -6,6 +6,8 @@ namespace Mignon.UI
 {
     public abstract class UIView : MonoBehaviour
     {
+
+
         public virtual void Init()
         {
         }

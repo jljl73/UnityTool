@@ -5,6 +5,10 @@ using UnityEngine;
 using Mignon.Util;
 using Mignon.Scene;
 
+using UniRx;
+using UniRx.Triggers;
+using Mignon.Data;
+
 namespace Mignon
 {
     public class GameScene : SceneBase
@@ -21,24 +25,33 @@ namespace Mignon
         public override void Init()
         {
             homeView.Init();
+
+            this.UpdateAsObservable()
+                .Where      (_ => Input.GetKeyDown(KeyCode.Alpha1))
+                .Subscribe  (_ => 
+                { 
+                    list.Push(circle.SpawnObject()); 
+                });
+
+            this.UpdateAsObservable()
+                .Where      (_ => Input.GetKeyDown(KeyCode.Alpha2))
+                .Subscribe  (_ =>
+                {
+                    if (list.Count > 0)
+                        list.Pop().DespawnObject();
+                });
+
+            this.UpdateAsObservable()
+                .Where      (_ => Input.GetKeyDown(KeyCode.Space))
+                .Subscribe  (_ =>
+                {
+                    DataCenter.Instance.UserData.Gold.Value += 1;
+                });
         }
 
         public override void Dispose()
         {
             homeView.Dispose();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                list.Push(circle.SpawnObject());
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                if (list.Count > 0)
-                    list.Pop().DespawnObject();
-            }
         }
     }
 }

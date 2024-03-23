@@ -12,14 +12,19 @@ namespace Mignon
         static bool startFirstScene = false;
         public static SceneBase CurrentScene;
 
-        public static void MoveFirstScene(eSceneType sceneType)
+        public static bool MoveFirstScene(eSceneType sceneType)
         {
             if (startFirstScene)
-                return;
+                return false;
 
             startFirstScene = true;
             if (sceneType != eSceneType.SplashScene)
+            {
                 ChangeScene(eSceneType.SplashScene);
+                return true;
+            }
+
+            return false;
         }
 
         public static void ChangeScene(eSceneType sceneType)

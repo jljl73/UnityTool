@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 403430963}
   - component: {fileID: 403430962}
   m_Layer: 5
-  m_Name: Nickname (1)
+  m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,6 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonShowPopup: {fileID: 448307685}
+  textUserGold: {fileID: 403430962}
 --- !u!1 &2069959372
 GameObject:
   m_ObjectHideFlags: 0

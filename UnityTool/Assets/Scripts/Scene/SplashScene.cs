@@ -1,4 +1,5 @@
 
+using Mignon.Data;
 using Mignon.UI;
 
 namespace Mignon.Scene
@@ -9,6 +10,7 @@ namespace Mignon.Scene
 
         public override void Init()
         {
+            DataCenter.Instance.Init();
             SceneSystem.ChangeScene(eSceneType.GameScene);
         }
 

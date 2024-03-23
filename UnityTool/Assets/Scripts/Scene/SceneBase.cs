@@ -17,23 +17,26 @@ namespace Mignon.Scene
         private     PopupSystem popupSystem;
         public      PopupSystem PopupSystem => popupSystem;
         public abstract eSceneType  SceneType   { get; }
+        private bool moveScene = false;
 
         private void Awake()
         {
             SceneSystem.CurrentScene = this;
-            SceneSystem.MoveFirstScene(SceneType);
+            moveScene = SceneSystem.MoveFirstScene(SceneType);
 
-            popupSystem?.Init();
+            if (moveScene) return;
 
             Init();
+            popupSystem?.Init();
         }
 
 
         private void OnDestroy()
         {
-            popupSystem?.Dispose();
+            if (moveScene) return;
 
             Dispose();
+            popupSystem?.Dispose();
         }
 
         public abstract void Init();
