@@ -1,11 +1,9 @@
-using Mignon.Game;
 using Mignon.Util;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mignon
+namespace Mignon.Game
 {
     public class BlockData : ScriptableObject
     {

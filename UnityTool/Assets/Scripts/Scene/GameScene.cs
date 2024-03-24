@@ -1,9 +1,4 @@
-using Mignon.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Mignon.Util;
-using Mignon.Scene;
 
 using UniRx;
 using UniRx.Triggers;
@@ -12,7 +7,7 @@ using Mignon.Data;
 using Mignon.Game;
 
 
-namespace Mignon
+namespace Mignon.Scene
 {
     public class GameScene : SceneBase
     {

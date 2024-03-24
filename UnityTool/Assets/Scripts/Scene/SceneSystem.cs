@@ -1,11 +1,6 @@
-using Cysharp.Threading.Tasks;
-using Mignon.Scene;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mignon
+namespace Mignon.Scene
 {
     public class SceneSystem 
     {

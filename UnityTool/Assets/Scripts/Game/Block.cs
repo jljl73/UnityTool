@@ -1,13 +1,11 @@
-using Mignon.Game;
 using Mignon.Util;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-namespace Mignon
+namespace Mignon.Game
 {
     public class Block : MonoBehaviour
     {

@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using TMPro;
-using System;
+
 using Mignon.Data;
+using Mignon.Scene;
 
 namespace Mignon.UI
 {

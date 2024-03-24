@@ -1,13 +1,6 @@
-using Mignon.Data;
 using Mignon.Scene;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using UniRx;
-using Unity.VisualScripting;
 
 namespace Mignon.UI
 {

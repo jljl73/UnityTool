@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mignon
+namespace Mignon.Game
 {
-
-
     public class BlockTile : MonoBehaviour
     {
         [SerializeField]

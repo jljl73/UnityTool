@@ -1,11 +1,8 @@
 using Cysharp.Threading.Tasks;
 using Mignon.Util;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 
 namespace Mignon.Game

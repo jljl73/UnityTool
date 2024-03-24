@@ -1,6 +1,5 @@
 
 using Mignon.Data;
-using Mignon.UI;
 
 namespace Mignon.Scene
 {
