@@ -40,5 +40,15 @@ namespace Mignon.Game
                 spawnBlocks.Add(newBlock);
             }
         }
+
+        public void UseBlock(Block block)
+        {
+            spawnBlocks.Remove(block);
+            block.Dispose();
+            block.gameObject.DespawnObject();
+
+            if (spawnBlocks.Count == 0)
+                CreateRandomBlocks();
+        }
     }
 }

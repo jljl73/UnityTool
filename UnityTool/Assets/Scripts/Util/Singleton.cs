@@ -30,16 +30,19 @@ namespace Mignon
             get
             {
                 if (instance == null)
+                {
                     instance = GameObject.FindObjectOfType<T>();
+                    instance.Init();
+                }
 
                 if(instance == null)
                 {
                     GameObject singleton = new GameObject();
                     instance = singleton.AddComponent<T>();
                     instance.name = typeof(T).Name;
+                    instance.Init();
                 }
 
-                instance.Init();
                 return instance;
             }
         }

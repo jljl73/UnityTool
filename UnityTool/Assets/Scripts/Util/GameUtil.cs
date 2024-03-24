@@ -17,5 +17,12 @@ namespace Mignon.Util
             int y = id % width;
             return (x, y);
         }
+
+        public static (int, int) IdToCentPoint(int id, int width)
+        {
+            int x = id / width - (width >> 1);
+            int y = id % width - (width >> 1);
+            return (x, y);
+        }
     }
 }

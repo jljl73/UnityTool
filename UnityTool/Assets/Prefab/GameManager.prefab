@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1487554766767622285}
-  - component: {fileID: 1487554766767622284}
+  - component: {fileID: 1332395678104345800}
   m_Layer: 0
-  m_Name: GameScene
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1487554766767622284
+--- !u!114 &1332395678104345800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,11 +74,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487554766767622274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db30f6c973e06f43ae74e119aa5f288, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ebe7a66239a07d45a943b763ff0a609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupSystem: {fileID: 0}
-  uiView: {fileID: 0}
   mapController: {fileID: 1487554767438402805}
   blockController: {fileID: 5012208000943946771}
 --- !u!1 &1487554767344353731
@@ -210,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce60ae154326b341a38f8d8fafa01d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 5729137546712821596, guid: e61d0f37e2c0de44e8f3eec9b20db85e, type: 3}
+  tilePrefab: {fileID: 525333388226854580, guid: 53055b074aa2e434b8813b37b24bc15f, type: 3}
 --- !u!1 &5556295128274829461
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,26 +17,20 @@ namespace Mignon
     public class GameScene : SceneBase
     {
         public override eSceneType      SceneType       => eSceneType.GameScene;
-
-        [Header("Controller")]
         [SerializeField]
-        private MapController mapController;
-        [SerializeField]
-        private BlockController blockController;
+        private GameManager gameManager;
 
 
         public override void Init()
         {
-            mapController.Init();
-            blockController.Init();
+            gameManager.Initialize();
 
             TestInput();
         }
 
         public override void Dispose()
         {
-            mapController.Dispose();
-            blockController.Dispose();
+            gameManager.Dispose();
         }
 
         private void TestInput()
