@@ -41,7 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 515256063284616801}
   - component: {fileID: 8168999844174107467}
-  m_Layer: 0
+  - component: {fileID: 8957592631872835994}
+  m_Layer: 6
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 525333388226854580, guid: 53055b074aa2e434b8813b37b24bc15f, type: 3}
   tileTrans: {fileID: 5135058410701718461}
+--- !u!65 &8957592631872835994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5182353653325303891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}

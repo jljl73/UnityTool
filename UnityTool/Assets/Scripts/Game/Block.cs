@@ -2,6 +2,8 @@ using Mignon.Game;
 using Mignon.Util;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace Mignon
@@ -12,6 +14,8 @@ namespace Mignon
         private GameObject tilePrefab;
         [SerializeField]
         private Transform tileTrans;
+
+        private Vector3 originPosition;
 
         public void LoadData(BlockData blockData)
         {
@@ -34,7 +38,27 @@ namespace Mignon
 
         public void Init()
         {
+            originPosition = transform.localPosition;
             tileTrans.localScale = Vector3.one * 0.5f;
+
+            gameObject.OnMouseDownAsObservable()
+                .Subscribe(_ => tileTrans.localScale = Vector3.one);
+
+            gameObject.OnMouseDragAsObservable()
+                .Select(_ => Camera.main.ScreenToWorldPoint(Input.mousePosition))
+                .Subscribe(pos =>
+                {
+                    pos.z = 0;
+                    pos += new Vector3(0, 1.0f, 0);
+                    transform.position = pos;
+                });
+
+            gameObject.OnMouseUpAsObservable()
+                .Subscribe(_ =>
+                {
+                    tileTrans.localScale = Vector3.one * 0.5f;
+                    transform.localPosition = originPosition;
+                });
         }
 
 
