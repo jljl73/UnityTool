@@ -7,8 +7,8 @@ namespace Mignon.Data
 {
     public class UserData : DataModelBase
     {
-        private ReactiveProperty<int> gold = new ReactiveProperty<int>();
-        public IReactiveProperty<int> Gold => gold;
+        private ReactiveProperty<int> score = new ReactiveProperty<int>();
+        public IReactiveProperty<int> Score => score;
 
 
         private ReactiveProperty<string> nickName = new ReactiveProperty<string>();

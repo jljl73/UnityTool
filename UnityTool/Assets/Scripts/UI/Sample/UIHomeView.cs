@@ -14,19 +14,17 @@ namespace Mignon.UI
         [SerializeField]
         private Button      buttonShowPopup;
         [SerializeField]
-        private TMP_Text    textUserGold;
+        private TMP_Text    textUserScore;
         [SerializeField]
         private TMP_Text    textUserNickName;
-
-        List<IDisposable>   disposables = new List<IDisposable>();
 
         public override void Init()
         {
             buttonShowPopup.onClick.AsObservable()
                 .Subscribe(_ => OnClickShowPopup());
             
-            DataCenter.Instance.UserData.Gold.AsObservable()
-                .Subscribe(gold => textUserGold.text = string.Format("Gold : {0}", gold));
+            DataCenter.Instance.UserData.Score.AsObservable()
+                .Subscribe(gold => textUserScore.text = gold.ToString());
             
             DataCenter.Instance.UserData.NickName.AsObservable()
                 .Subscribe(nickname => textUserNickName.text = nickname);

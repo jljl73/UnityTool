@@ -19,28 +19,44 @@ namespace Mignon
         private GameObject circle;
         private Stack<GameObject> list = new Stack<GameObject>();
 
+        [SerializeField]
+        private MapController mapController;
+
+
         public override void Init()
         {
+            mapController.Init();
+
+            TestInput();
+        }
+
+        public override void Dispose()
+        {
+            mapController.Dispose();
+        }
+
+        private void TestInput()
+        {
             this.UpdateAsObservable()
-                .Where      (_ => Input.GetKeyDown(KeyCode.Alpha1))
-                .Subscribe  (_ => 
-                { 
-                    list.Push(circle.SpawnObject()); 
+                .Where(_ => Input.GetKeyDown(KeyCode.Alpha1))
+                .Subscribe(_ =>
+                {
+                    list.Push(circle.SpawnObject());
                 });
 
             this.UpdateAsObservable()
-                .Where      (_ => Input.GetKeyDown(KeyCode.Alpha2))
-                .Subscribe  (_ =>
+                .Where(_ => Input.GetKeyDown(KeyCode.Alpha2))
+                .Subscribe(_ =>
                 {
                     if (list.Count > 0)
                         list.Pop().DespawnObject();
                 });
 
             this.UpdateAsObservable()
-                .Where      (_ => Input.GetKeyDown(KeyCode.Space))
-                .Subscribe  (_ =>
+                .Where(_ => Input.GetKeyDown(KeyCode.Space))
+                .Subscribe(_ =>
                 {
-                    DataCenter.Instance.UserData.Gold.Value += 1;
+                    DataCenter.Instance.UserData.Score.Value += 1;
                 });
 
             this.UpdateAsObservable()
@@ -49,10 +65,6 @@ namespace Mignon
                 {
                     SceneSystem.ChangeScene(eSceneType.SplashScene);
                 });
-        }
-
-        public override void Dispose()
-        {
         }
     }
 }
