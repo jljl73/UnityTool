@@ -25,18 +25,21 @@ namespace Mignon.Scene
 
         private void Awake()
         {
-            SceneSystem.CurrentScene = this;
             moveScene = SceneSystem.MoveFirstScene(SceneType);
 
-            if (moveScene) return;
+            if (moveScene == false)
+                SceneSystem.SetScene(this);
+        }
 
+        public void SceneInit()
+        {
             Init();
             popupSystem?.Init();
             uiView?.Init();
         }
 
 
-        private void OnDestroy()
+        public void SceneDispose()
         {
             if (moveScene) return;
 
