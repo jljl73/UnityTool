@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mignon
+namespace Mignon.Game
 {
     public class MapData
     {
@@ -37,7 +37,7 @@ namespace Mignon
                 (int x, int y) = MapUtil.IdToPoint(mapData.Id, width);
                 
                 var newTile = tilePrefab.SpawnObject(transform);
-                newTile.transform.position = new Vector3(x - (width >> 1), y - (height >> 1), 0);
+                newTile.transform.localPosition = new Vector3(x - (height >> 1), y - (width >> 1), 0);
 
                 mapData.MapTile = newTile;
             }

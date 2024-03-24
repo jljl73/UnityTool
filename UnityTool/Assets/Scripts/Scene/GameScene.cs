@@ -7,7 +7,10 @@ using Mignon.Scene;
 
 using UniRx;
 using UniRx.Triggers;
+
 using Mignon.Data;
+using Mignon.Game;
+
 
 namespace Mignon
 {
@@ -15,17 +18,17 @@ namespace Mignon
     {
         public override eSceneType      SceneType       => eSceneType.GameScene;
 
-        [SerializeField]
-        private GameObject circle;
-        private Stack<GameObject> list = new Stack<GameObject>();
-
+        [Header("Controller")]
         [SerializeField]
         private MapController mapController;
+        [SerializeField]
+        private BlockController blockController;
 
 
         public override void Init()
         {
             mapController.Init();
+            blockController.Init();
 
             TestInput();
         }
@@ -33,25 +36,11 @@ namespace Mignon
         public override void Dispose()
         {
             mapController.Dispose();
+            blockController.Dispose();
         }
 
         private void TestInput()
         {
-            this.UpdateAsObservable()
-                .Where(_ => Input.GetKeyDown(KeyCode.Alpha1))
-                .Subscribe(_ =>
-                {
-                    list.Push(circle.SpawnObject());
-                });
-
-            this.UpdateAsObservable()
-                .Where(_ => Input.GetKeyDown(KeyCode.Alpha2))
-                .Subscribe(_ =>
-                {
-                    if (list.Count > 0)
-                        list.Pop().DespawnObject();
-                });
-
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKeyDown(KeyCode.Space))
                 .Subscribe(_ =>

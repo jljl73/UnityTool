@@ -75,6 +75,7 @@ namespace Mignon.Util
 
             var spawnObject = poolContainers[prefab].Pop();
             spawnObject.transform.SetParent(parent);
+            spawnObject.transform.localPosition = Vector3.zero;
             spawnObject.SetActive(true);
             spawnContainer.Add(spawnObject, prefab);
             return spawnObject;
