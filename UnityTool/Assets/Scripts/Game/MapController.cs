@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Mignon.Data;
 using Mignon.Util;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,6 +118,8 @@ namespace Mignon.Game
                 }
             }
 
+            int sum = 0;
+
             for (int x = 0; x < lineX.Count; ++x)
             {
                 for (int j = 0; j < height; ++j)
@@ -126,6 +129,7 @@ namespace Mignon.Game
                         Debug.LogError(mapId);
                     MapDatas[mapId].SetTile(0);
                 }
+                ++sum;
             }
 
             for (int y = 0; y < lineY.Count; ++y)
@@ -137,7 +141,11 @@ namespace Mignon.Game
                         Debug.LogError(mapId);
                     MapDatas[mapId].SetTile(0);
                 }
+                ++sum;
             }
+
+            if (sum > 0)
+                DataCenter.Instance.UserData.Score.Value += 1 << (sum - 1);
         }
 
         private bool CheckBlock(Vector2Int mapId, BlockData blockData)
