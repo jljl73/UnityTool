@@ -16,16 +16,11 @@ namespace Mignon
         public override eSceneType      SceneType       => eSceneType.GameScene;
 
         [SerializeField]
-        private UIHomeView homeView;
-
-        [SerializeField]
         private GameObject circle;
         private Stack<GameObject> list = new Stack<GameObject>();
 
         public override void Init()
         {
-            homeView.Init();
-
             this.UpdateAsObservable()
                 .Where      (_ => Input.GetKeyDown(KeyCode.Alpha1))
                 .Subscribe  (_ => 
@@ -47,11 +42,17 @@ namespace Mignon
                 {
                     DataCenter.Instance.UserData.Gold.Value += 1;
                 });
+
+            this.UpdateAsObservable()
+                .Where(_ => Input.GetKeyDown(KeyCode.Escape))
+                .Subscribe(_ =>
+                {
+                    SceneSystem.ChangeScene(eSceneType.SplashScene);
+                });
         }
 
         public override void Dispose()
         {
-            homeView.Dispose();
         }
     }
 }

@@ -9,6 +9,11 @@ namespace Mignon.Data
     {
         private ReactiveProperty<int> gold = new ReactiveProperty<int>();
         public IReactiveProperty<int> Gold => gold;
+
+
+        private ReactiveProperty<string> nickName = new ReactiveProperty<string>();
+        public IReactiveProperty<string> NickName => nickName;
+
         public override void Init()
         {
         }
@@ -16,11 +21,5 @@ namespace Mignon.Data
         public override void Dispose()
         {
         }
-
-        //public int Gold
-        //{
-        //    get { return gold.Value; }
-        //    set { gold.Value = value; }
-        //}
     }
 }

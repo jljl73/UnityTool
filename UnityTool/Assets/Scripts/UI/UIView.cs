@@ -6,18 +6,10 @@ namespace Mignon.UI
 {
     public abstract class UIView : MonoBehaviour
     {
+        public abstract void Init();
 
+        public abstract void Dispose();
 
-        public virtual void Init()
-        {
-        }
-
-        public virtual void Dispose()
-        {
-        }
-
-        public virtual void UpdateView()
-        {
-        }
+        public abstract void UpdateView();
     }
 }

@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupSystem: {fileID: 1322797545}
-  homeView: {fileID: 2041328717}
+  uiView: {fileID: 2041328717}
   circle: {fileID: 5729137546712821596, guid: e61d0f37e2c0de44e8f3eec9b20db85e, type: 3}
 --- !u!1 &889619342
 GameObject:
@@ -1152,6 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonShowPopup: {fileID: 448307685}
   textUserGold: {fileID: 403430962}
+  textUserNickName: {fileID: 2028673045}
 --- !u!1 &2069959372
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ namespace Mignon.Scene
         [SerializeField]
         private     PopupSystem popupSystem;
         public      PopupSystem PopupSystem => popupSystem;
+
+        [SerializeField]
+        private     UIView      uiView;
+
         public abstract eSceneType  SceneType   { get; }
         private bool moveScene = false;
 
@@ -28,6 +32,7 @@ namespace Mignon.Scene
 
             Init();
             popupSystem?.Init();
+            uiView?.Init();
         }
 
 
@@ -37,6 +42,7 @@ namespace Mignon.Scene
 
             Dispose();
             popupSystem?.Dispose();
+            uiView?.Dispose();
         }
 
         public abstract void Init();
