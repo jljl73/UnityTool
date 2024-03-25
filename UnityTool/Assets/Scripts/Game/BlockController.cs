@@ -1,3 +1,5 @@
+using Mignon.Scene;
+using Mignon.UI;
 using Mignon.Util;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +49,16 @@ namespace Mignon.Game
 
             if (spawnBlocks.Count == 0)
                 CreateRandomBlocks();
+
+            bool isGameOver = true;
+            for (int i = 0; i < spawnBlocks.Count; ++i)
+            {
+                if (GameManager.Instance.MapController.CheckBlockAllMap(spawnBlocks[i].BlockData))
+                    isGameOver = false;
+            }
+
+            if (isGameOver)
+                SceneSystem.CurrentScene.PopupSystem.ShowPopup(new PopupData(ePopupType.GameOver, null));
         }
     }
 }

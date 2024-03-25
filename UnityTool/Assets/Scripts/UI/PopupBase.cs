@@ -8,7 +8,8 @@ namespace Mignon.UI
 {
     public enum ePopupType
     {
-        Option, 
+        Option,
+        GameOver,
     }
 
     public abstract class PopupBase : MonoBehaviour

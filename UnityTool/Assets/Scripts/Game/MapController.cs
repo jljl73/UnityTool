@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Networking.Types;
+using UnityEngine.UIElements;
 
 namespace Mignon.Game
 {
@@ -147,6 +149,20 @@ namespace Mignon.Game
             if (sum > 0)
                 DataCenter.Instance.UserData.Score.Value += 1 << (sum - 1);
         }
+
+        public bool CheckBlockAllMap(BlockData blockData)
+        {
+            foreach (var mapData in MapDatas.Values)
+            {
+                var isAvailable = CheckBlock(mapData.Id, blockData);
+                if (isAvailable)
+                    return true;
+            }
+
+            return false;
+        }
+
+
 
         private bool CheckBlock(Vector2Int mapId, BlockData blockData)
         {
