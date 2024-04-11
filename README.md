@@ -1,6 +1,9 @@
 ## Example Game
-Block Puzzle Game  
+### Block Puzzle Game  
 [Game](https://github.com/jljl73/UnityTool/tree/main/UnityTool/Assets/Scripts/Game)
+### Auto Battle Game
+[Game](https://github.com/jljl73/Unity_Example)
+
 
 ## System
 1. Scene
