@@ -1,9 +1,11 @@
 ## Example Game
 ### Block Puzzle Game  
-[Game](https://github.com/jljl73/UnityTool/tree/main/UnityTool/Assets/Scripts/Game)
-### Auto Battle Game
-[Game](https://github.com/jljl73/Unity_Example)
+간단한 버전<br>
+[Repo](https://github.com/jljl73/UnityTool/tree/main/UnityTool/Assets/Scripts/Game)
 
+### Auto Battle Game
+약간 고도화된 버전<br>
+[Repo](https://github.com/jljl73/Unity_Example)
 
 ## System
 1. Scene
