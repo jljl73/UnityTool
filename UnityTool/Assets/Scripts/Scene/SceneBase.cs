@@ -6,19 +6,21 @@ namespace Mignon.Scene
     public enum eSceneType
     {
         SplashScene,
+        ReadyScene,
         GameScene,
     }
 
     public abstract class SceneBase : MonoBehaviour
     {
         [SerializeField]
-        private     PopupSystem popupSystem;
-        public      PopupSystem PopupSystem => popupSystem;
+        private PopupSystem popupSystem;
+        public PopupSystem PopupSystem => popupSystem;
 
         [SerializeField]
-        private     UIView      uiView;
+        private SceneTaskSystem taskSystem;
+        public SceneTaskSystem TaskSystem => taskSystem;
 
-        public abstract eSceneType  SceneType   { get; }
+        public abstract eSceneType SceneType { get; }
         private bool moveScene = false;
 
         private void Awake()
@@ -33,7 +35,7 @@ namespace Mignon.Scene
         {
             Init();
             popupSystem?.Init();
-            uiView?.Init();
+            taskSystem?.Init();
         }
 
 
@@ -43,7 +45,7 @@ namespace Mignon.Scene
 
             Dispose();
             popupSystem?.Dispose();
-            uiView?.Dispose();
+            taskSystem?.Dispose();
         }
 
         public abstract void Init();
