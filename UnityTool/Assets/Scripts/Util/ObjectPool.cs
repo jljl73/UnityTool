@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace Mignon.Util
         /// Init Settings
         /// </summary>
         [SerializeField]
-        private List<PoolItem> poolItems;
+        private List<PoolItem> poolItems = new List<PoolItem>();
         private readonly int initAddSize = 5;
 
         private Dictionary<GameObject, GameObject>          spawnContainer = new Dictionary<GameObject, GameObject>();
@@ -25,16 +26,16 @@ namespace Mignon.Util
 
         private void Awake()
         {
-            for(int i = 0; i < poolItems.Count; ++i)
+            for (int i = 0; i < poolItems.Count; ++i)
                 CreatePool(poolItems[i].prefab, poolItems[i].size);
         }
 
         public void CreatePool(GameObject prefab, int size)
         {
-            if(poolContainers.ContainsKey(prefab) == false)
-                poolContainers.Add(prefab, new Stack<GameObject>()); 
+            if (poolContainers.ContainsKey(prefab) == false)
+                poolContainers.Add(prefab, new Stack<GameObject>());
 
-            for(int i = 0; i < size; ++i)
+            for (int i = 0; i < size; ++i)
             {
                 var newObject = Instantiate(prefab, transform);
                 newObject.SetActive(false);
@@ -51,7 +52,7 @@ namespace Mignon.Util
             {
                 var top = poolContainers[prefab].Pop();
                 Destroy(top);
-            }    
+            }
         }
 
         public void RemoveAllPool()
@@ -87,7 +88,17 @@ namespace Mignon.Util
             spawnObject.SetActive(false);
             spawnContainer.Remove(spawnObject);
             poolContainers[prefab].Push(spawnObject);
-        }    
+        }
+
+        public T SpawnObject<T>(T prefab, Transform parent = null) where T : Component
+        {
+            return prefab.gameObject.SpawnObject(parent).GetComponent<T>();
+        }
+
+        public void DespawnObject<T>(T spawnObject) where T : Component
+        {
+            spawnObject.gameObject.DespawnObject();
+        }
     }
 
     public static class ObjectPoolExtension
@@ -98,6 +109,22 @@ namespace Mignon.Util
         }
 
         public static void DespawnObject(this GameObject spawnObject)
+        {
+            ObjectPool.Instance.DespawnObject(spawnObject);
+        }
+
+        public static async UniTask DespawnObject(this GameObject spawnObject, float delayTime)
+        {
+            await UniTask.WaitForSeconds(delayTime);
+            ObjectPool.Instance.DespawnObject(spawnObject);
+        }
+
+        public static T SpawnObject<T>(this T prefab, Transform parent = null) where T : Component
+        {
+            return ObjectPool.Instance.SpawnObject<T>(prefab);
+        }
+
+        public static void DespawnObject<T>(this T spawnObject) where T : Component
         {
             ObjectPool.Instance.DespawnObject(spawnObject);
         }
