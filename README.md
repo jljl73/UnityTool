@@ -1,21 +1,21 @@
 ## Example Game
 ### Block Puzzle Game  
-간단한 버전<br>
-[Repo](https://github.com/jljl73/UnityTool/tree/main/UnityTool/Assets/Scripts/Game)
+Sample<br>
+[Repository](https://github.com/jljl73/UnityTool/tree/main/UnityTool/Assets/Scripts/Game)
 
 ### Auto Battle Game
-약간 고도화된 버전<br>
-[Repo](https://github.com/jljl73/Unity_Example)
+간단하게 제작한 예시 프로젝트<br>
+[Repository](https://github.com/jljl73/Unity_Example)
 
 ## System
 1. Scene
-2. Data
+2. Scene Task (Scene Flow 관리)
+3. Data
 
 ## UI
-1. UIView
-2. PopupSystem]
-3. PopupBase
-4. Reddot
+1. UI View
+2. Popup System
+3. Reddot
 
 ## Util
 1. ObjectPool
@@ -23,9 +23,8 @@
 3. Prioiry Queue
 4. Localization
 5. Utility Functions
-
-[Repo](https://github.com/jljl73/UnityTool/blob/main/UnityTool/Assets/Scripts/Util)
-
+6. Layout Rebuilder
+7. Safe Area
 
 ## Unity Open Source
 1. [UniTask](https://github.com/Cysharp/UniTask)
